@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="especie_perro" model="vet.especie"><field name="name">Perro</field></record>
+    <record id="especie_gato" model="vet.especie"><field name="name">Gato</field></record>
+    <record id="especie_ave" model="vet.especie"><field name="name">Ave</field></record>
+    <record id="especie_conejo" model="vet.especie"><field name="name">Conejo</field></record>
+    <record id="especie_otro" model="vet.especie"><field name="name">Otro</field></record>
+
+    <record id="raza_labrador" model="vet.raza">
+        <field name="name">Labrador</field><field name="especie_id" ref="especie_perro"/>
+    </record>
+    <record id="raza_pastor_aleman" model="vet.raza">
+        <field name="name">Pastor alemán</field><field name="especie_id" ref="especie_perro"/>
+    </record>
+    <record id="raza_criollo_perro" model="vet.raza">
+        <field name="name">Criollo</field><field name="especie_id" ref="especie_perro"/>
+    </record>
+    <record id="raza_siames" model="vet.raza">
+        <field name="name">Siamés</field><field name="especie_id" ref="especie_gato"/>
+    </record>
+    <record id="raza_criollo_gato" model="vet.raza">
+        <field name="name">Criollo</field><field name="especie_id" ref="especie_gato"/>
+    </record>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="servicio_bano" model="vet.servicio">
+        <field name="codigo">bano</field>
+        <field name="name">Baño</field>
+        <field name="icono">droplets</field>
+        <field name="descripcion">Limpieza completa con shampoo adecuado al tipo de pelo y piel de tu mascota, con enjuague y secado.</field>
+    </record>
+    <record id="servicio_bano_medicado" model="vet.servicio">
+        <field name="codigo">bano-medicado</field>
+        <field name="name">Baño medicado</field>
+        <field name="icono">shield</field>
+        <field name="descripcion">Baño con productos terapéuticos para mascotas con alguna condición de piel. Se recomienda contar con indicación del veterinario.</field>
+    </record>
+    <record id="servicio_corte_pelo" model="vet.servicio">
+        <field name="codigo">corte-pelo</field>
+        <field name="name">Corte de pelo</field>
+        <field name="icono">scissors</field>
+        <field name="descripcion">Corte según la raza, el estilo que prefieras y las necesidades de tu mascota.</field>
+    </record>
+    <record id="servicio_unas" model="vet.servicio">
+        <field name="codigo">unas</field>
+        <field name="name">Corte de uñas y limado</field>
+        <field name="icono">paw</field>
+        <field name="descripcion">Recorte y limado de uñas para que tu mascota camine cómoda y evitar lastimaduras.</field>
+    </record>
+    <record id="servicio_oidos" model="vet.servicio">
+        <field name="codigo">oidos</field>
+        <field name="name">Limpieza de oídos</field>
+        <field name="icono">ear</field>
+        <field name="descripcion">Higiene del oído externo para ayudar a prevenir malos olores, acumulación de cera e irritaciones.</field>
+    </record>
+    <record id="servicio_dental" model="vet.servicio">
+        <field name="codigo">dental</field>
+        <field name="name">Higiene dental</field>
+        <field name="icono">sparkles</field>
+        <field name="descripcion">Limpieza de dientes para reducir el sarro y el mal aliento.</field>
+    </record>
+    <record id="servicio_deslanado" model="vet.servicio">
+        <field name="codigo">deslanado</field>
+        <field name="name">Deslanado</field>
+        <field name="icono">wind</field>
+        <field name="descripcion">Retiro del pelo muerto del subpelo en razas de doble capa, para reducir la muda y mantener el pelaje fresco.</field>
+    </record>
+    <record id="servicio_cepillado" model="vet.servicio">
+        <field name="codigo">cepillado</field>
+        <field name="name">Cepillado</field>
+        <field name="icono">brush</field>
+        <field name="descripcion">Desenredado y retiro de pelo suelto para mantener el pelaje suave y sin nudos.</field>
+    </record>
+    <record id="servicio_colorimetria" model="vet.servicio">
+        <field name="codigo">colorimetria</field>
+        <field name="name">Colorimetría</field>
+        <field name="icono">palette</field>
+        <field name="descripcion">Coloración y detalles de color con productos seguros para mascotas.</field>
+    </record>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vet_servicio_view_list" model="ir.ui.view">
+        <field name="name">vet.servicio.list</field>
+        <field name="model">vet.servicio</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vet_servicio_view_form" model="ir.ui.view">
+        <field name="name">vet.servicio.form</field>
+        <field name="model">vet.servicio</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="codigo"/>
+                        <field name="icono"/>
+                        <field name="active"/>
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="vet_servicio_action" model="ir.actions.act_window">
+        <field name="name">Servicios</field>
+        <field name="res_model">vet.servicio</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'active_test': False}</field>
+    </record>
+</odoo>

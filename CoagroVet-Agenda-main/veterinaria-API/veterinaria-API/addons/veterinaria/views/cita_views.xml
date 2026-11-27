@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vet_cita_view_list" model="ir.ui.view">
+        <field name="name">vet.cita.list</field>
+        <field name="model">vet.cita</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="fecha"/>
+                <field name="hora" widget="float_time"/>
+                <field name="paciente_id"/>
+                <field name="propietario_id"/>
+                <field name="estado" widget="badge"
+                       decoration-info="estado == 'agendada'"
+                       decoration-success="estado == 'completada'"
+                       decoration-danger="estado == 'cancelada'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vet_cita_view_form" model="ir.ui.view">
+        <field name="name">vet.cita.form</field>
+        <field name="model">vet.cita</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_completar" type="object" string="Completar"
+                            class="btn-primary" invisible="estado != 'agendada' or not id"/>
+                    <button name="action_cancelar" type="object" string="Cancelar cita"
+                            confirm="¿Cancelar esta cita?" invisible="estado != 'agendada' or not id"/>
+                    <field name="estado" widget="statusbar" readonly="1"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="paciente_id" required="not id"
+                                   readonly="id" options="{'no_create': True}"/>
+                            <field name="propietario_id" readonly="1" force_save="1"/>
+                        </group>
+                        <group>
+                            <field name="fecha" readonly="estado != 'agendada'"/>
+                            <field name="hora" widget="float_time" readonly="estado != 'agendada'"/>
+                            <field name="duracion" readonly="estado != 'agendada'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Servicios">
+                            <field name="linea_ids" readonly="estado != 'agendada'">
+                                <list editable="bottom">
+                                    <field name="servicio_id" options="{'no_create': True}"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Indicaciones">
+                            <field name="notas" nolabel="1"/>
+                        </page>
+                        <page string="Historial">
+                            <field name="historial_ids">
+                                <list>
+                                    <field name="accion"/>
+                                    <field name="nombre_usuario"/>
+                                    <field name="fecha_hora"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="vet_cita_view_search" model="ir.ui.view">
+        <field name="name">vet.cita.search</field>
+        <field name="model">vet.cita</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="paciente_id"/>
+                <field name="propietario_id"/>
+                <filter string="Hoy" name="hoy"
+                        domain="[('fecha', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Agendadas" name="agendadas" domain="[('estado', '=', 'agendada')]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Fecha" name="group_fecha" context="{'group_by': 'fecha:day'}"/>
+                    <filter string="Estado" name="group_estado" context="{'group_by': 'estado'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="vet_cita_action" model="ir.actions.act_window">
+        <field name="name">Citas</field>
+        <field name="res_model">vet.cita</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="res_partner_view_form_vet" model="ir.ui.view">
+        <field name="name">res.partner.form.vet</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Veterinaria" name="veterinaria" groups="veterinaria.group_vet_recepcion">
+                    <group>
+                        <field name="vet_es_cliente"/>
+                        <field name="vet_identidad"/>
+                    </group>
+                    <field name="vet_paciente_ids" readonly="1">
+                        <list>
+                            <field name="numero_expediente"/>
+                            <field name="name"/>
+                            <field name="especie_id"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

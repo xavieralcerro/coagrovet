@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_veterinaria_root" name="Veterinaria" sequence="10"
+              groups="group_vet_recepcion"/>
+
+    <menuitem id="menu_vet_pacientes" name="Pacientes" parent="menu_veterinaria_root"
+              action="vet_paciente_action" sequence="10"/>
+
+    <menuitem id="menu_vet_citas" name="Citas" parent="menu_veterinaria_root"
+              action="vet_cita_action" sequence="5"/>
+
+    <menuitem id="menu_vet_config" name="Configuración" parent="menu_veterinaria_root"
+              sequence="90" groups="group_vet_veterinario"/>
+    <menuitem id="menu_vet_especies" name="Especies" parent="menu_vet_config"
+              action="vet_especie_action" sequence="10"/>
+    <menuitem id="menu_vet_razas" name="Razas" parent="menu_vet_config"
+              action="vet_raza_action" sequence="20"/>
+    <menuitem id="menu_vet_servicios" name="Servicios" parent="menu_vet_config"
+              action="vet_servicio_action" sequence="30" groups="group_vet_admin"/>
+</odoo>

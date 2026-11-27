@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="seq_vet_paciente" model="ir.sequence">
+        <field name="name">Expediente veterinario</field>
+        <field name="code">vet.paciente</field>
+        <field name="prefix">EXP-</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Horario de la clínica: se puede cambiar en Ajustes > Técnico > Parámetros del sistema -->
+    <record id="param_duracion" model="ir.config_parameter">
+        <field name="key">veterinaria.duracion_cita</field>
+        <field name="value">150</field>
+    </record>
+    <record id="param_apertura" model="ir.config_parameter">
+        <field name="key">veterinaria.hora_apertura</field>
+        <field name="value">480</field>
+    </record>
+    <record id="param_cierre" model="ir.config_parameter">
+        <field name="key">veterinaria.hora_cierre</field>
+        <field name="value">1020</field>
+    </record>
+    <record id="param_zona" model="ir.config_parameter">
+        <field name="key">veterinaria.zona_horaria</field>
+        <field name="value">America/Tegucigalpa</field>
+    </record>
+</odoo>

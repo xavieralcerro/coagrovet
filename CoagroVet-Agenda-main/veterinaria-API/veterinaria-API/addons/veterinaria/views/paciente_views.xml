@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vet_paciente_view_list" model="ir.ui.view">
+        <field name="name">vet.paciente.list</field>
+        <field name="model">vet.paciente</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="numero_expediente"/>
+                <field name="name"/>
+                <field name="propietario_id"/>
+                <field name="especie_id"/>
+                <field name="raza_id"/>
+                <field name="sexo"/>
+                <field name="edad"/>
+                <field name="peso"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="vet_paciente_view_form" model="ir.ui.view">
+        <field name="name">vet.paciente.form</field>
+        <field name="model">vet.paciente</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <widget name="web_ribbon" title="Archivado" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <field name="active" invisible="1"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Nombre de la mascota"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="numero_expediente"/>
+                            <field name="propietario_id"/>
+                            <field name="especie_id"/>
+                            <field name="raza_id"/>
+                        </group>
+                        <group>
+                            <field name="sexo"/>
+                            <field name="fecha_nacimiento"/>
+                            <field name="edad_valor"/>
+                            <field name="edad_unidad"/>
+                            <field name="edad"/>
+                            <field name="peso"/>
+                            <field name="temperamento"/>
+                            <field name="vacunado"/>
+                        </group>
+                    </group>
+                    <group string="Descripción">
+                        <field name="descripcion" nolabel="1" colspan="2"/>
+                    </group>
+                    <group string="Alergias, piel o salud">
+                        <field name="salud" nolabel="1" colspan="2"/>
+                    </group>
+                    <group string="Notas">
+                        <field name="notas" nolabel="1"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="vet_paciente_view_search" model="ir.ui.view">
+        <field name="name">vet.paciente.search</field>
+        <field name="model">vet.paciente</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="numero_expediente"/>
+                <field name="propietario_id"/>
+                <field name="especie_id"/>
+                <filter string="Archivados" name="archivados" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Especie" name="group_especie" context="{'group_by': 'especie_id'}"/>
+                    <filter string="Propietario" name="group_propietario" context="{'group_by': 'propietario_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="vet_paciente_action" model="ir.actions.act_window">
+        <field name="name">Pacientes</field>
+        <field name="res_model">vet.paciente</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

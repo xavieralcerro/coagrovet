@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vet_especie_recepcion,vet.especie recepcion,model_vet_especie,group_vet_recepcion,1,0,0,0
+access_vet_especie_veterinario,vet.especie veterinario,model_vet_especie,group_vet_veterinario,1,1,1,0
+access_vet_especie_admin,vet.especie admin,model_vet_especie,group_vet_admin,1,1,1,1
+access_vet_raza_recepcion,vet.raza recepcion,model_vet_raza,group_vet_recepcion,1,0,0,0
+access_vet_raza_veterinario,vet.raza veterinario,model_vet_raza,group_vet_veterinario,1,1,1,0
+access_vet_raza_admin,vet.raza admin,model_vet_raza,group_vet_admin,1,1,1,1
+access_vet_paciente_recepcion,vet.paciente recepcion,model_vet_paciente,group_vet_recepcion,1,1,1,0
+access_vet_paciente_veterinario,vet.paciente veterinario,model_vet_paciente,group_vet_veterinario,1,1,1,0
+access_vet_paciente_admin,vet.paciente admin,model_vet_paciente,group_vet_admin,1,1,1,1
+access_vet_servicio_recepcion,vet.servicio recepcion,model_vet_servicio,group_vet_recepcion,1,0,0,0
+access_vet_servicio_admin,vet.servicio admin,model_vet_servicio,group_vet_admin,1,1,1,1
+access_vet_cita_recepcion,vet.cita recepcion,model_vet_cita,group_vet_recepcion,1,1,1,0
+access_vet_cita_servicio_recepcion,vet.cita.servicio recepcion,model_vet_cita_servicio,group_vet_recepcion,1,1,1,1
+access_vet_cita_historial_recepcion,vet.cita.historial recepcion,model_vet_cita_historial,group_vet_recepcion,1,0,0,0
+access_vet_aviso_recepcion,vet.aviso recepcion,model_vet_aviso,group_vet_recepcion,1,0,0,0
+access_vet_sesion_system,vet.sesion system,model_vet_sesion,base.group_system,1,0,0,0
